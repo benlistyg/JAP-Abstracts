@@ -4,11 +4,11 @@ server <- function(input, output) {
   
   year_cooccur<-function(year){
     
-    jap_data<-read.csv("https://github.com/BListyg/JAP-Abstracts/blob/master/JAPdata.csv?raw=true")
+    jap_data<-read.csv("https://github.com/BListyg/JAP-Abstracts/blob/master/tutor_networks.csv?raw=true")
     #Subset matrix by year
-    dat<-jap_data[which(jap_data$X4==year),]
+    dat<-jap_data[which(jap_data$datecreated==year),]
     
-    dat<-data.frame(dat$X3,dat$X1)
+    dat<-data.frame(dat$tutorkey,dat$studentkey)
     
     colnames(dat) <- c("X1","X2")
     
